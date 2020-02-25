@@ -48,7 +48,9 @@ class Navbar extends React.Component {
                         Transactions
                     </Link>
 
-                    <Button onClock={this.props.logout}></Button>
+                    <button onClick={this.props.logout}>
+                        Logout
+                    </button>
                 </div>
             )
         }
