@@ -1,17 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import NavbarSplashContainer from '../navbar/navbar_splash_container';
 
 class Splash extends React.Component {
     constructor(props){
         super(props);
-        this.state;
+        this.state = {
+            name: "",
+            email: "",
+            password: ""
+        };
     }
 
     render() {
         return (
             <>
-                <div>
-                    <h1>SPLASH PAGE</h1>
+                <NavbarSplashContainer />
+                <div className="splash-body">
+                    <h1>Splash Page</h1>
 
                 </div>
 

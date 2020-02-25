@@ -3,14 +3,8 @@ import Splash from './splash';
 
 const msp = state => {
     return {
-        
+        currentUser: state.session.userId
     }
 }
 
-const mdp = dispatch => {
-    return {
-        
-    }
-}
-
-export default connect(msp, mdp)(Splash);
+export default connect(msp)(Splash);
