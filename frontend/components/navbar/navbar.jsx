@@ -27,16 +27,26 @@ class Navbar extends React.Component {
                     </Link>
                 </div>
             )
-        } else if (this.props.url === "form") {
+        } 
+        else if (this.props.url === "form") {
             display = (
                 <div>
-                    <Link to="/"></Link>
+                    <Link to="/">
+                        Home
+                    </Link>
                 </div>
             )
-        } else {
+        } 
+        else {
             display = (
                 <div>
+                    <Link to="/portfolio">
+                        Portfolio
+                    </Link>
 
+                    <Link to="/transactions">
+                        Transactions
+                    </Link>
                 </div>
             )
         }

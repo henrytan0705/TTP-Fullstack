@@ -1,5 +1,6 @@
 class Api::SessionsController < ApplicationController
-    @user = User.find_by_credentials(
+    def create
+        @user = User.find_by_credentials(
             params[:user][:email,],
             params[:user][:password])
         if @user
@@ -8,4 +9,14 @@ class Api::SessionsController < ApplicationController
         else
             render json: ["Please enter a valid email", "Your password must contain at least 6 characters"], status: 422
         end
+    end
+
+    def destroy
+        if current_user
+            logout!
+            render json: {}
+        else
+            render json: current_user.error.full_messages, status: 404
+        end
+    end
 end

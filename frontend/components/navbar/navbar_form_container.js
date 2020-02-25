@@ -8,4 +8,4 @@ const msp = state => {
     }
 }
 
-export default connect(msp, mdp)(Navbar);
+export default connect(msp)(Navbar);

@@ -6,7 +6,7 @@ export const signup = (user) => {
             user
         }
     });
-}
+} 
 
 export const login = (user) => {
     return $.ajax({
