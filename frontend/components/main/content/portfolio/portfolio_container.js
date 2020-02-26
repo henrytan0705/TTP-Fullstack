@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Portfolio from './portfolio';
+import { purchase, update, sell } from '../../../../actions/stock_actions.js';
 
 const msp = state => {
     return {
@@ -9,7 +10,9 @@ const msp = state => {
 
 const mdp = dispatch => {
     return {
-
+        purchase: stock => dispatch(purchase(stock)),
+        update: stock => dispatch(update(stock)),
+        sell: stock => dispatch(sell(stock)),
     }
 }
 

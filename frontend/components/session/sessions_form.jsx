@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 
     componentWillUnmount() {
@@ -30,11 +31,23 @@ class SessionForm extends React.Component {
         }
     }
 
+    demoLogin(e){
+        e.preventDefault();
+
+        const user = {
+            email: "demo@gmail.com",
+            password: "asdf1234"
+        }
+
+        this.props.formAction(user);
+    }
+
     render() {
         const formlink = this.props.formType === "Sign In" ? "/signup" : "/login";
         const formButton = this.props.formType === "Sign In" ? "Sign in" : "Register"; 
         const redirectLink = this.props.formType === "Sign In" ? "Register" : "Sign in" ; 
         let nameForm;
+        let demoButton;
 
         if (this.props.formType === "Sign Up") {
             nameForm = (
@@ -48,7 +61,12 @@ class SessionForm extends React.Component {
                     </label>
                 </div>
             )
-
+        }else {
+            demoButton = (
+                <button onClick={this.demoLogin}>
+                    DEMO LOGIN
+                </button>
+            )
         }
 
         return (
@@ -58,7 +76,7 @@ class SessionForm extends React.Component {
                 <div>
                     <div>
                         <div>
-                            <h1> {this.props.formType}</h1>
+                            <h1> {formButton}</h1>
                             <form onSubmit={this.handleSubmit}>
 
                                 {nameForm}
@@ -102,6 +120,8 @@ class SessionForm extends React.Component {
                                         {redirectLink}
                                     </Link>
                                 </span>
+
+                                {demoButton}
 
                             </form>
 

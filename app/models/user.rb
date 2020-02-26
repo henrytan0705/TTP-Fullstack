@@ -4,13 +4,14 @@ class User < ApplicationRecord
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
     validates :password, length: { minimum: 6 }, allow_nil: true
 
-    has_one :portfolio, 
-        foreign_key: :portfolio_id, 
-        class_name: :Portfolio
-
+    has_many :owned_stocks,
+        foreign_key: :user_id,
+        class_name: :Stock
+        
     has_many :transactions,
         foreign_key: :transaction_id,
         class_name: :Transaction
+
 
     attr_reader :password
     after_initialize :ensure_session_token

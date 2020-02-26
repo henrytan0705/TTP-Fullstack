@@ -8,4 +8,5 @@
 
 User.destroy_all
 
+demo = User.create!(name:"Demo", email:"demo@gmail.com", password: "asdf1234")
 henry = User.create!(name:"Henry", email: "henry@gmail.com", password:"asdf1234")
