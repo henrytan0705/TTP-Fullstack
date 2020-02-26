@@ -12,7 +12,6 @@ const App = () => {
             <AuthRoute exact path="/" component={SplashContainer}/>
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-
             <MainAuthRoute path={["/portfolio", "/transactions"]} component={ContentContainer} />
         </>
     )
