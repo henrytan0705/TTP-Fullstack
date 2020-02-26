@@ -30,8 +30,8 @@ export const sellStock = stock => {
 //////////////////////////Thunk actions///////////////////////////
 
 
-export const purchase = () => dispatch => {
-    return StockAPIUtil.purchaseStock()
+export const purchase = (stock) => dispatch => {
+    return StockAPIUtil.purchaseStock(stock)
         .then(stock => dispatch(purchaseStock(stock)))
 }
 

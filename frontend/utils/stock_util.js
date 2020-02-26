@@ -34,3 +34,4 @@ export const fetchStock = stock => {
         url: `https://cloud.iexapis.com/stable/stock/${stock}/quote?token=pk_558c6c46e31a43648ea6d1b072dad045`
     })
 }
+

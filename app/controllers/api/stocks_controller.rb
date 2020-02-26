@@ -1,10 +1,15 @@
 class Api::StocksController < ApplicationController
+    def show
+        @user = User.find_by(id: params[:id])
+        render "api/users/show"
+    end
+
     def create
         @stock = Stock.new(stock_params)
         @stock.save
 
-        @user = User.find_by(params[:user_id])
-        total_cost = params[:quantity].to_f * params[:price].to_f
+        @user = User.find_by(id: stock_params[:user_id])
+        total_cost = stock_params[:quantity].to_f * stock_params[:price].to_f
         new_balance = @user.money - total_cost
         @user.update(money: new_balance)
 
@@ -28,9 +33,9 @@ class Api::StocksController < ApplicationController
         render "api/users/show"
     end
 
-    # def destroy
+    def destroy
         
-    # end
+    end
 
     def stock_params
         params.require(:stock).permit(:name, :ticker, :price, :quantity, :user_id)
